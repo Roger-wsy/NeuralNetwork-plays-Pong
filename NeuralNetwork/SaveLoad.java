@@ -71,22 +71,22 @@ public class SaveLoad {
         
         // Init the synapsis
         int n = 0;
-        for(int l = 0; l < nn.genomes_per_generation; l++) {
-            for(int i = 0; i < nn.layers_amount - 1; i++) {
-                for(int j = 0; j < nn.neurons_amount[i]; j++) {
+        for (int l = 0; l < nn.genomes_per_generation; l++) {
+            for (int i = 0; i < nn.layers_amount - 1; i++) {
+                for (int j = 0; j < nn.neurons_amount[i]; j++) {
                     int m;
-                    if(i + 1 != nn.layers_amount - 1) {
+                    if (i + 1 != nn.layers_amount - 1) {
                         m = nn.neurons_amount[i + 1] - 1;
-                    }
-                    else {
+                    } else {
                         m = nn.neurons_amount[i + 1];
                     }
-                    for(int k = 0; k < m; k++) {
+                    for (int k = 0; k < m; k++) {
                         nn.synapses[l][i][j][k] = Double.parseDouble(values.get(n));
                         n++;
                     }
                 }
             }
         }
+        reader.close();
     }
 }
